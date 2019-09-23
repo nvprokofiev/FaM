@@ -55,6 +55,7 @@ class GameInteractor {
             sessionItems += cardSet
         }
         cards = sessionItems
+            .shuffled()
             .map({ Card($0) })
     }
     
