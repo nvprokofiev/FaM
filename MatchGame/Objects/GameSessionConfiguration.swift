@@ -9,19 +9,15 @@
 import Foundation
 
 struct GameSessionConfiguration {
-    private(set) var scoreToWin: Int = 2
+    private(set) var scoreToWin: Int = 10
     private(set) var difficulty: Difficulty = .easy
     
     var flipBump: Int {
-        switch difficulty {
-        case .easy: return 2
-        case .medium: return 3
-        case .hard: return 4
-        }
+        return difficulty.level
     }
     
     var maximumFlips: Int {
-        return scoreToWin * 2
+        return scoreToWin * difficulty.level
     }
     
     mutating func setScoreToWin(to value: Int) {

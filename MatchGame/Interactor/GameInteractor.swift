@@ -14,7 +14,11 @@ class GameInteractor {
     private var cards: [Card] = []
     private(set) var score: Int = 0
     
-    private var lastSelectedCards: [Card] = []
+    private var lastSelectedCards: [Card] = [] {
+        didSet {
+            lastSelectedCards.reserveCapacity(configuration.difficulty.level)
+        }
+    }
     
     var matched: (([Int]) -> Void)?
     var flipCards: (([Int]) -> Void)?
@@ -47,12 +51,11 @@ class GameInteractor {
         CardIdentifierFactory.reset()
         let cardSet = Array(gameItems.shuffled().prefix(configuration.scoreToWin))
         var sessionItems: [CardItemable] = []
-        for _ in 0 ... configuration.difficulty.rawValue + 1 {
+        for _ in 1 ... configuration.difficulty.level {
             sessionItems += cardSet
         }
-        
-        cards = sessionItems.map{ Card($0) }
-        lastSelectedCards.reserveCapacity(configuration.difficulty.rawValue)
+        cards = sessionItems
+            .map({ Card($0) })
     }
     
     func restart() {
@@ -67,8 +70,7 @@ class GameInteractor {
         flipsUsed += 1
         flipsLeft -= 1
         card.isFaceUp.toggle()
-        
-        //Flip one card
+
         DispatchQueue.main.async { [weak self] in
             guard let `self` = self else { return }
             self.flipCards?(self.pairInndexes(for: [card]))
@@ -85,45 +87,25 @@ class GameInteractor {
                     self.flipCards?(self.pairInndexes(for: self.lastSelectedCards))
                     self.lastSelectedCards = []
                 })
-            } else if lastSelectedCards.capacity == lastSelectedCards.count {
+            } else {
                 
-                score += 1
-                lastSelectedCards.forEach { $0.isMatched = true }
-                flipsLeft += configuration.flipBump
-                DispatchQueue.main.asyncAfter(deadline: .now() + 0.5, execute: { [weak self] in
-                    guard let `self` = self else { return }
-                    self.matched?(self.pairInndexes(for: self.lastSelectedCards))
-                    self.lastSelectedCards = []
-                })
+                self.lastSelectedCards.append(card)
+
+                if lastSelectedCards.capacity == lastSelectedCards.count {
+                    score += 1
+                    lastSelectedCards.forEach { $0.isMatched = true }
+                    flipsLeft += configuration.flipBump
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.5, execute: { [weak self] in
+                        guard let `self` = self else { return }
+                        self.matched?(self.pairInndexes(for: self.lastSelectedCards))
+                        self.lastSelectedCards = []
+                    })
+                }
             }
         } else {
             lastSelectedCards.append(card)
         }
         checkScore()
-
-//        if let lastCard = lastSelectedCard {
-//            if lastCard == card {
-//                score += 1
-//                lastCard.isMatched = true
-//                card.isMatched = true
-//                flipsLeft += configuration.flipBump
-//                DispatchQueue.main.asyncAfter(deadline: .now() + 0.5, execute: { [weak self] in
-//                    guard let `self` = self else { return }
-//                    self.matched?(self.pairInndexes(for: [lastCard, card]))
-//                })
-//            } else {
-//                DispatchQueue.main.asyncAfter(deadline: .now() + 0.5, execute: { [weak self] in
-//                    lastCard.isFaceUp.toggle()
-//                    card.isFaceUp.toggle()
-//                    guard let `self` = self else { return }
-//                    self.flipCards?(self.pairInndexes(for: [lastCard, card]))
-//                })
-//            }
-//            lastSelectedCard = nil
-//        } else {
-//            lastSelectedCard = card
-//        }
-//        checkScore()
     }
     
     private func pairInndexes(for cards: [Card])-> [Int] {

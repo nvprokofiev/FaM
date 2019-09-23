@@ -47,7 +47,6 @@ class SettingsViewController: UIViewController {
     }
     
     private func saveSettings() {
-        //FIX: check if values has been changed
         if isConfigurationChanged() {
             guard let difficulty = Difficulty(rawValue: difficultySegmentControl.selectedSegmentIndex) else { return }
             let gridSizeValue = Int(gridSizeStepper.value)
@@ -59,7 +58,6 @@ class SettingsViewController: UIViewController {
     
     private func isConfigurationChanged() -> Bool {
         guard let difficulty = Difficulty(rawValue: difficultySegmentControl.selectedSegmentIndex) else { return false }
-        
         return configuration.scoreToWin != Int(gridSizeStepper.value) || configuration.difficulty != difficulty
     }
 }

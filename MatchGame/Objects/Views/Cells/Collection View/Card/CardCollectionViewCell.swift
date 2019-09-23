@@ -58,7 +58,6 @@ class CardCollectionViewCell: UICollectionViewCell, StyleHelper {
         self.isHidden = true
       }
     }
-
     
     private func setupStyle() {
         guard let card = card else { return }

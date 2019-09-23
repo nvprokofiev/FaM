@@ -24,7 +24,6 @@ struct UserDefaultsManager<T: Codable> {
         if let data = UserDefaults.standard.object(forKey: String(describing: model.self)) as? Data {
             let decoder = JSONDecoder()
             if let model = try? decoder.decode(T.self, from: data) {
-                print(model)
                 return model
             }
         }
