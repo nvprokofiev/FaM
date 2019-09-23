@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="GameResultView" customModule="MatchGame" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="370" height="347"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="You have matched all twenty cards for just twenty-nine flips" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="x6t-M1-jo6">
+                    <rect key="frame" x="40" y="85.5" width="290" height="48"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="N05-LO-L7C">
+                    <rect key="frame" x="124.5" y="197.5" width="121" height="40"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                    <inset key="contentEdgeInsets" minX="16" minY="8" maxX="16" maxY="8"/>
+                    <state key="normal" title="Play again">
+                        <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </state>
+                    <connections>
+                        <action selector="playAgainTapped:" destination="iN0-l3-epB" eventType="touchUpInside" id="bLk-SJ-Gps"/>
+                    </connections>
+                </button>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Oh no!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XEw-I3-epr">
+                    <rect key="frame" x="122.5" y="11" width="125.5" height="50.5"/>
+                    <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="42"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="x6t-M1-jo6" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="43T-1M-nUu"/>
+                <constraint firstAttribute="trailing" secondItem="x6t-M1-jo6" secondAttribute="trailing" constant="40" id="I9D-pd-XDY"/>
+                <constraint firstItem="x6t-M1-jo6" firstAttribute="top" secondItem="XEw-I3-epr" secondAttribute="bottom" constant="24" id="Ja4-53-shb"/>
+                <constraint firstItem="N05-LO-L7C" firstAttribute="top" secondItem="x6t-M1-jo6" secondAttribute="bottom" constant="64" id="L07-FV-bUu"/>
+                <constraint firstItem="N05-LO-L7C" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="Qk2-wv-x3Q"/>
+                <constraint firstItem="x6t-M1-jo6" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" constant="-64" id="TfU-uD-3sA"/>
+                <constraint firstItem="XEw-I3-epr" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="Yfr-Eq-D5P"/>
+                <constraint firstItem="x6t-M1-jo6" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="40" id="szy-SB-1eS"/>
+            </constraints>
+            <nil key="simulatedTopBarMetrics"/>
+            <nil key="simulatedBottomBarMetrics"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <connections>
+                <outlet property="playAgainButton" destination="N05-LO-L7C" id="BuO-w9-nrc"/>
+                <outlet property="resultDescriptionLabel" destination="x6t-M1-jo6" id="yDY-mB-zeT"/>
+                <outlet property="resultLabel" destination="XEw-I3-epr" id="FPw-rQ-NSx"/>
+            </connections>
+            <point key="canvasLocation" x="169.56521739130437" y="-26.450892857142858"/>
+        </view>
+    </objects>
+</document>

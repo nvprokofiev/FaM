@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SettingsViewController" customModule="MatchGame" customModuleProvider="target">
+            <connections>
+                <outlet property="difficultyDescriptionLabel" destination="AL8-0t-aXb" id="yN3-fw-6su"/>
+                <outlet property="difficultySegmentControl" destination="MSE-7b-E89" id="xdk-o0-dTP"/>
+                <outlet property="gridSizeStepper" destination="XVi-SR-M3X" id="cTh-zG-CXh"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="885"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Settings" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="z4a-5P-bSV">
+                    <rect key="frame" x="16" y="24" width="382" height="41"/>
+                    <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="34"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Difficulty" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ukq-pR-wfy">
+                    <rect key="frame" x="16" y="99" width="382" height="29"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bordered" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="MSE-7b-E89">
+                    <rect key="frame" x="16" y="144" width="382" height="29"/>
+                    <segments>
+                        <segment title="Easy peasy"/>
+                        <segment title="So-so"/>
+                        <segment title="Crazy"/>
+                    </segments>
+                    <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <connections>
+                        <action selector="difficultyChanged:" destination="-1" eventType="valueChanged" id="tms-rT-yDb"/>
+                    </connections>
+                </segmentedControl>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="You need to match two cards to get cool &quot;match&quot;" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AL8-0t-aXb">
+                    <rect key="frame" x="16" y="188" width="382" height="18"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="Grid size" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zDS-IY-ygY">
+                    <rect key="frame" x="16" y="260" width="90" height="29"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XVi-SR-M3X" customClass="ValueStepper" customModule="ValueStepper">
+                    <rect key="frame" x="198" y="260" width="200" height="29"/>
+                    <color key="tintColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="200" id="tI0-wN-SZx"/>
+                    </constraints>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="value">
+                            <real key="value" value="10"/>
+                        </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="number" keyPath="minimumValue">
+                            <real key="value" value="10"/>
+                        </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="number" keyPath="maximumValue">
+                            <real key="value" value="50"/>
+                        </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="boolean" keyPath="enableManualEditing" value="NO"/>
+                        <userDefinedRuntimeAttribute type="number" keyPath="stepValue">
+                            <real key="value" value="5"/>
+                        </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="color" keyPath="backgroundLabelColor">
+                            <color key="value" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="color" keyPath="labelTextColor">
+                            <color key="value" cocoaTouchSystemColor="darkTextColor"/>
+                        </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="color" keyPath="disabledBackgroundButtonColor">
+                            <color key="value" red="0.90894187176165797" green="0.90894187176165797" blue="0.90894187176165797" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="color" keyPath="iconButtonColor">
+                            <color key="value" cocoaTouchSystemColor="darkTextColor"/>
+                        </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="boolean" keyPath="autorepeat" value="NO"/>
+                        <userDefinedRuntimeAttribute type="color" keyPath="highlightedBackgroundColor">
+                            <color key="value" cocoaTouchSystemColor="darkTextColor"/>
+                        </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="color" keyPath="disabledIconButtonColor">
+                            <color key="value" cocoaTouchSystemColor="darkTextColor"/>
+                        </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="color" keyPath="backgroundButtonColor">
+                            <color key="value" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="color" keyPath="highlightedIconColor">
+                            <color key="value" red="1" green="0.25911462460000001" blue="0.096827761040000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
+                    <connections>
+                        <action selector="grisSizeValueChanged:" destination="-1" eventType="valueChanged" id="2S8-PJ-sSe"/>
+                    </connections>
+                </view>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="MSE-7b-E89" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="16" id="7mX-M0-unV"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="ukq-pR-wfy" secondAttribute="trailing" constant="16" id="9lf-ie-TLh"/>
+                <constraint firstItem="z4a-5P-bSV" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="16" id="DCE-10-bzI"/>
+                <constraint firstItem="XVi-SR-M3X" firstAttribute="centerY" secondItem="zDS-IY-ygY" secondAttribute="centerY" id="EJj-6q-2a8"/>
+                <constraint firstItem="MSE-7b-E89" firstAttribute="top" secondItem="ukq-pR-wfy" secondAttribute="bottom" constant="16" id="Pjn-L3-wif"/>
+                <constraint firstItem="AL8-0t-aXb" firstAttribute="leading" secondItem="MSE-7b-E89" secondAttribute="leading" id="RZH-vi-IkJ"/>
+                <constraint firstItem="ukq-pR-wfy" firstAttribute="top" secondItem="z4a-5P-bSV" secondAttribute="bottom" constant="34" id="SWZ-y2-fc4"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="MSE-7b-E89" secondAttribute="trailing" constant="16" id="jwA-sm-fTv"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="z4a-5P-bSV" secondAttribute="trailing" constant="16" id="mjx-kp-XnI"/>
+                <constraint firstItem="zDS-IY-ygY" firstAttribute="top" secondItem="MSE-7b-E89" secondAttribute="bottom" constant="88" id="mq6-2p-Tkf"/>
+                <constraint firstItem="ukq-pR-wfy" firstAttribute="leading" secondItem="z4a-5P-bSV" secondAttribute="leading" id="o8I-kb-nS3"/>
+                <constraint firstItem="z4a-5P-bSV" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="24" id="qHb-24-Vwy"/>
+                <constraint firstItem="XVi-SR-M3X" firstAttribute="trailing" secondItem="MSE-7b-E89" secondAttribute="trailing" id="sal-e3-8dc"/>
+                <constraint firstItem="AL8-0t-aXb" firstAttribute="trailing" secondItem="MSE-7b-E89" secondAttribute="trailing" id="tSx-ZQ-RNI"/>
+                <constraint firstItem="zDS-IY-ygY" firstAttribute="leading" secondItem="ukq-pR-wfy" secondAttribute="leading" id="wWN-GO-Oiu"/>
+                <constraint firstItem="AL8-0t-aXb" firstAttribute="top" secondItem="MSE-7b-E89" secondAttribute="bottom" constant="16" id="wwe-GO-KTD"/>
+            </constraints>
+            <nil key="simulatedTopBarMetrics"/>
+            <nil key="simulatedBottomBarMetrics"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
+            <point key="canvasLocation" x="40.579710144927539" y="-32.477678571428569"/>
+        </view>
+    </objects>
+</document>
