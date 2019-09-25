@@ -11,10 +11,3 @@ Used third party libraties
 * SPStorkController https://github.com/ivanvorobei/SPStorkController
 * Kingfisher https://github.com/onevcat/Kingfisher
 * ValueStepper https://github.com/BalestraPatrick/ValueStepper
-
-![on start](https://ibb.co/VN25Nnf)
-![in process](https://ibb.co/RzsTj6v)
-
-
-
-
